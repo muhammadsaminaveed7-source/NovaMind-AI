@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NovaMind AI — Dashboard</title>
+
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">N</div>
+                <div>
+                    <strong>NovaMind</strong>
+                    <span>AI Workspace</span>
+                </div>
+            </div>
+
+            <button class="new-chat">
+                + New Chat
+            </button>
+
+            <div class="menu">
+
+                <div class="menu-title">
+                    WORKSPACE
+                </div>
+
+                <button class="menu-item active">
+                    ✦ <span>AI Chat</span>
+                </button>
+
+                <button class="menu-item">
+                    ✎ <span>AI Writer</span>
+                </button>
+
+                <button class="menu-item">
+                    ◈ <span>Documents</span>
+                </button>
+
+                <button class="menu-item">
+                    ⚡ <span>Summarizer</span>
+                </button>
+
+                <div class="menu-title">
+                    ACCOUNT
+                </div>
+
+                <button class="menu-item">
+                    ⚙ <span>Settings</span>
+                </button>
+
+            </div>
+
+            <div class="sidebar-bottom">
+
+                <div class="usage">
+                    <div class="usage-top">
+                        <span>Free Plan</span>
+                        <span>20 / 50</span>
+                    </div>
+
+                    <div class="progress">
+                        <div></div>
+                    </div>
+
+                    <small>AI requests used</small>
+                </div>
+
+                <div class="user">
+                    <div class="avatar">
+                        S
+                    </div>
+
+                    <div>
+                        <strong>Sami</strong>
+                        <span>Free account</span>
+                    </div>
+
+                    <button>•••</button>
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN -->
+        <main class="main">
+
+            <!-- TOP BAR -->
+            <header class="topbar">
+
+                <div>
+                    <span class="page-label">
+                        AI ASSISTANT
+                    </span>
+
+                    <h1>
+                        Good evening, Sami
+                    </h1>
+                </div>
+
+                <div class="top-actions">
+
+                    <button class="upgrade">
+                        Upgrade to Pro
+                    </button>
+
+                    <button class="icon-button">
+                        ♢
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- CONTENT -->
+            <section class="content">
+
+                <div class="welcome">
+
+                    <div>
+                        <span class="eyebrow">
+                            NOVAMIND AI
+                        </span>
+
+                        <h2>
+                            What can I help you
+                            <span>create today?</span>
+                        </h2>
+
+                        <p>
+                            Ask questions, write content, analyze documents
+                            or brainstorm your next big idea.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- QUICK ACTIONS -->
+                <div class="quick-actions">
+
+                    <button class="action-card">
+
+                        <div class="action-icon">
+                            ✎
+                        </div>
+
+                        <div>
+                            <strong>Write something</strong>
+                            <span>
+                                Create emails, articles or posts
+                            </span>
+                        </div>
+
+                    </button>
+
+
+                    <button class="action-card">
+
+                        <div class="action-icon">
+                            ◈
+                        </div>
+
+                        <div>
+                            <strong>Analyze a document</strong>
+                            <span>
+                                Understand your files faster
+                            </span>
+                        </div>
+
+                    </button>
+
+
+                    <button class="action-card">
+
+                        <div class="action-icon">
+                            ⚡
+                        </div>
+
+                        <div>
+                            <strong>Summarize text</strong>
+                            <span>
+                                Turn long content into key points
+                            </span>
+                        </div>
+
+                    </button>
+
+                </div>
+
+
+                <!-- CHAT -->
+                <div class="chat-container">
+
+                    <div class="chat-header">
+
+                        <div class="assistant-info">
+
+                            <div class="ai-avatar">
+                                ✦
+                            </div>
+
+                            <div>
+                                <strong>NovaMind AI</strong>
+                                <span>
+                                    ● Online
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <button class="more">
+                            •••
+                        </button>
+
+                    </div>
+
+
+                    <div class="messages" id="messages">
+
+                        <div class="message ai">
+
+                            <div class="message-avatar">
+                                N
+                            </div>
+
+                            <div class="message-content">
+
+                                <strong>NovaMind AI</strong>
+
+                                <p>
+                                    Hey! I'm NovaMind, your AI assistant.
+                                    What would you like to work on today?
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- INPUT -->
+                    <div class="input-area">
+
+                        <textarea
+                            id="chatInput"
+                            placeholder="Message NovaMind AI..."
+                            rows="1"
+                        ></textarea>
+
+                        <div class="input-bottom">
+
+                            <div class="input-tools">
+
+                                <button title="Attach file">
+                                    +
+                                </button>
+
+                                <span>
+                                    NovaMind can make mistakes. Check important information.
+                                </span>
+
+                            </div>
+
+                            <button
+                                class="send-button"
+                                id="sendButton"
+                            >
+                                ↑
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="dashboard.js"></script>
+
+</body>
+</html>
