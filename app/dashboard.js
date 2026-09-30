@@ -55,7 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
             if (data.reply) {
                 addMessage(data.reply, "ai");
             } else {
-                addMessage("API ne koi reply nahi diya.", "ai");
+                addMessage(
+    data.error
+        ? `API Error: ${data.error} ${data.details ? " | " + data.details : ""}`
+        : "API ne koi reply nahi diya.",
+    "ai"
+);
             }
 
         } catch (error) {
