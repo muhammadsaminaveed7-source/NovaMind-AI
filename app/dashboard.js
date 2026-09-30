@@ -14,23 +14,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const message = document.createElement("div");
         message.className = `message ${type}`;
 
-        if (type === "user") {
-            message.innerHTML = `
-                <div class="message-avatar">S</div>
-                <div class="message-content">
-                    <strong>You</strong>
-                    <p>${escapeHTML(text)}</p>
-                </div>
-            `;
-        } else {
-            message.innerHTML = `
-                <div class="message-avatar">N</div>
-                <div class="message-content">
-                    <strong>NovaMind AI</strong>
-                    <p>${escapeHTML(text)}</p>
-                </div>
-            `;
-        }
+        message.innerHTML = `
+            <div class="message-avatar">${type === "user" ? "S" : "N"}</div>
+            <div class="message-content">
+                <strong>${type === "user" ? "You" : "NovaMind AI"}</strong>
+                <p>${escapeHTML(text)}</p>
+            </div>
+        `;
 
         messages.appendChild(message);
         messages.scrollTop = messages.scrollHeight;
@@ -42,34 +32,35 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!text) return;
 
         addMessage(text, "user");
+
         input.value = "";
         sendButton.disabled = true;
 
         try {
-            const response = await fetch("http://127.0.0.1:5000/chat", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    message: text
-                })
-            });
+            const response = await fetch(
+                "https://novamind-api.muhammadsaminaveed7.workers.dev/chat",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        message: text
+                    })
+                }
+            );
 
             const data = await response.json();
 
             if (data.reply) {
                 addMessage(data.reply, "ai");
             } else {
-                addMessage("Something went wrong.", "ai");
+                addMessage("API ne koi reply nahi diya.", "ai");
             }
 
         } catch (error) {
-            console.error(error);
-            addMessage(
-                "Backend se connection nahi ho saka.",
-                "ai"
-            );
+            console.error("API Error:", error);
+            addMessage("API se connection nahi ho saka.", "ai");
         }
 
         sendButton.disabled = false;
